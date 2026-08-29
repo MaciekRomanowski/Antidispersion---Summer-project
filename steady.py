@@ -351,18 +351,9 @@ for n in range(num_steps):
 
         C_values = (C_sol.compute_vertex_values(mesh)[sort_indices])
 
-        plt.plot(
-            x_sorted,
-            C_values,
-            label=rf"$T={snapshot_time:g}$",
-            linewidth=2.0
-        )
+        plt.plot(x_sorted, C_values, label=rf"$T={snapshot_time:g}$", linewidth=2.0)
 
-
-    # -----------------------------------------------------------------------
     # Advance solution
-    # -----------------------------------------------------------------------
-
     C_n.assign(C_sol)
 
 
@@ -399,8 +390,6 @@ plt.gca().text(
     verticalalignment="top",
     fontsize=18
 )
-
-
 plt.tight_layout()
 
 
@@ -408,16 +397,8 @@ plt.tight_layout()
 # 18. Save figure
 # =============================================================================
 
-figure_path = os.path.join(
-    output_directory,
-    "concentration_profiles.svg"
-)
-
-
-plt.savefig(
-    figure_path,
-    bbox_inches="tight"
-)
+figure_path = os.path.join( output_directory, "concentration_profiles.svg")
+plt.savefig(figure_path, bbox_inches="tight")
 
 
 plt.show()
